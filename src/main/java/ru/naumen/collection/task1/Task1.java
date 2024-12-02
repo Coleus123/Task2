@@ -1,7 +1,7 @@
 package ru.naumen.collection.task1;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Дано:
@@ -27,7 +27,7 @@ import java.util.Map;
  */
 public class Task1
 {
-    private Map<Long, Goods> ticketsStorage = new HashMap<>();
+    private Map<Long, Goods> ticketsStorage = new TreeMap<>();
     public enum Goods {
         /**
          * нет товаров
@@ -43,11 +43,12 @@ public class Task1
         FOOD_AND_DRINKS
     }
 
+
     /**
      * Получить товары по билету
      */
     public Goods getGoods(Ticket ticket) {
         return ticketsStorage.get(ticket.getId());
-        //O(1)
+        //O(log(N)), где N - число билетов
     }
 }

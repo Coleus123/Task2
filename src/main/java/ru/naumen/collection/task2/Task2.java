@@ -1,9 +1,6 @@
 package ru.naumen.collection.task2;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 /**
  * Дано:
@@ -38,14 +35,14 @@ public class Task2
      * Возвращает дубликаты пользователей, которые есть в обеих коллекциях
      */
     public static List<User> findDuplicates(Collection<User> collA, Collection<User> collB) {
-        HashSet<User> usersSetCollA = new HashSet<>(collA);
-        HashSet<User> usersSetCollB = new HashSet<>(collB);
-        ArrayList<User> result = new ArrayList<>();
-        for (User user : usersSetCollB){
+        Set<User> usersSetCollA = new HashSet<>(collA);
+        Set<User> duplicates = new HashSet<>();
+        for (User user : collB){
             if (usersSetCollA.contains(user)){
-                result.add(user);
+                duplicates.add(user);
             }
         }
+        List<User> result = new ArrayList<>(duplicates);
         return result;
         // O(N + M), N - количество пользователей в collA и M в collB
     }
