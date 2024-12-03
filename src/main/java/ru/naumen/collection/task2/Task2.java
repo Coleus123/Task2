@@ -36,14 +36,19 @@ public class Task2
      */
     public static List<User> findDuplicates(Collection<User> collA, Collection<User> collB) {
         Set<User> usersSetCollA = new HashSet<>(collA);
-        Set<User> duplicates = new HashSet<>();
+        // проходим по элементам collA и добавляем в usersSetCollA
+        // добавление элемента в HashSet выполняется за O(1)
+        // алгоритмическая сложность равна O(N), N - количество пользователей в collA
+        List<User> result = new LinkedList<>();
         for (User user : collB){
             if (usersSetCollA.contains(user)){
-                duplicates.add(user);
+                result.add(user);
             }
         }
-        List<User> result = new ArrayList<>(duplicates);
+        // Перебираем каждый элемент в collB, делаем проверку contains, которая выполняется за O(1)
+        // затем добавляем элемент в LinkedList, что тоже займет O(1)
+        // алгоритмическая сложность равна O(2M), где M - количество пользователей в collB
         return result;
-        // O(N + M), N - количество пользователей в collA и M в collB
+        // O(N + 2M), общая алгоритмическая сложность
     }
 }
