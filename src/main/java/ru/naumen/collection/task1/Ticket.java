@@ -9,4 +9,10 @@ package ru.naumen.collection.task1;
 public class Ticket {
     private long id;
     private String client;
+
+
+    @Override
+    public int hashCode(){
+        return (int) id;
+    }
 }
