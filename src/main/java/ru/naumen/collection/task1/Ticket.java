@@ -10,11 +10,9 @@ public class Ticket {
     private long id;
     private String client;
 
-    public Long getId(){
-        return id;
-    }
+
     @Override
     public int hashCode(){
-        return Long.hashCode(id);
+        return (int) id;
     }
 }
