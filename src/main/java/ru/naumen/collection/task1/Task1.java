@@ -44,19 +44,15 @@ public class Task1
         FOOD_AND_DRINKS
     }
 
-    /**
-     * Положить в HashMap id пользователя и товар
-     */
-    public void setGoods(Ticket ticket, Goods goods){
-        ticketsStorage.put(ticket.getId(), goods);
-    }
 
     /**
      * Получить товары по билету
      */
     public Goods getGoods(Ticket ticket) {
         return ticketsStorage.get(ticket.getId());
-        //В качестве ключей храним id пользователей, получение
-        // значения по ключу в HashMap выполняется за O(1)
+        // хранит в качестве ключей id посетителей
+        //Если посетителей меньше чем или равно 2^31 - 1,
+        //то алгоритмическая сложность равна O(1)
+
     }
 }

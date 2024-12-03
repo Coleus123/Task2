@@ -13,4 +13,8 @@ public class Ticket {
     public Long getId(){
         return id;
     }
+    @Override
+    public int hashCode(){
+        return Long.hashCode(id);
+    }
 }
